@@ -32,20 +32,21 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.featureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.greyscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.loadBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.useWebcamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -69,7 +70,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.loadBackgroundToolStripMenuItem});
+            this.loadBackgroundToolStripMenuItem,
+            this.useWebcamToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "file";
@@ -77,16 +79,23 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveToolStripMenuItem.Text = "save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // loadBackgroundToolStripMenuItem
+            // 
+            this.loadBackgroundToolStripMenuItem.Name = "loadBackgroundToolStripMenuItem";
+            this.loadBackgroundToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loadBackgroundToolStripMenuItem.Text = "load background";
+            this.loadBackgroundToolStripMenuItem.Click += new System.EventHandler(this.loadBackgroundToolStripMenuItem_Click);
             // 
             // featureToolStripMenuItem
             // 
@@ -136,6 +145,13 @@
             this.sepiaToolStripMenuItem.Text = "sepia";
             this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.sepiaToolStripMenuItem_Click);
             // 
+            // subtractToolStripMenuItem
+            // 
+            this.subtractToolStripMenuItem.Name = "subtractToolStripMenuItem";
+            this.subtractToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.subtractToolStripMenuItem.Text = "subtract";
+            this.subtractToolStripMenuItem.Click += new System.EventHandler(this.subtractToolStripMenuItem_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -169,24 +185,17 @@
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             // 
-            // loadBackgroundToolStripMenuItem
-            // 
-            this.loadBackgroundToolStripMenuItem.Name = "loadBackgroundToolStripMenuItem";
-            this.loadBackgroundToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.loadBackgroundToolStripMenuItem.Text = "load background";
-            this.loadBackgroundToolStripMenuItem.Click += new System.EventHandler(this.loadBackgroundToolStripMenuItem_Click);
-            // 
-            // subtractToolStripMenuItem
-            // 
-            this.subtractToolStripMenuItem.Name = "subtractToolStripMenuItem";
-            this.subtractToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.subtractToolStripMenuItem.Text = "subtract";
-            this.subtractToolStripMenuItem.Click += new System.EventHandler(this.subtractToolStripMenuItem_Click);
-            // 
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             this.openFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog2_FileOk);
+            // 
+            // useWebcamToolStripMenuItem
+            // 
+            this.useWebcamToolStripMenuItem.Name = "useWebcamToolStripMenuItem";
+            this.useWebcamToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.useWebcamToolStripMenuItem.Text = "use webcam";
+            this.useWebcamToolStripMenuItem.Click += new System.EventHandler(this.useWebcamToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -200,6 +209,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -230,6 +240,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadBackgroundToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subtractToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.ToolStripMenuItem useWebcamToolStripMenuItem;
     }
 }
 

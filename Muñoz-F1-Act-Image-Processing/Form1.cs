@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebCamLib;
 
 namespace Muñoz_F1_Act_Image_Processing
 {
@@ -15,6 +16,7 @@ namespace Muñoz_F1_Act_Image_Processing
 
         Bitmap loadImage, resultImage, backgroundImage;
         Color pixel;
+        private Device webcamDevice;
         public Form1()
         {
             InitializeComponent();
@@ -179,6 +181,26 @@ namespace Muñoz_F1_Act_Image_Processing
                 }
             }
             pictureBox2.Image = resultImage;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void useWebcamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Device[] devices = DeviceManager.GetAllDevices();
+
+            if (devices.Length > 0)
+            {
+                webcamDevice = devices[0];
+                webcamDevice.ShowWindow(pictureBox1);
+            }
+            else
+            {
+                MessageBox.Show("No webcam devices found.");
+            }
         }
 
         private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
